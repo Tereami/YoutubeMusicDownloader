@@ -4,7 +4,7 @@ The application downloads all videos from a specified YouTube channel as MP3 fil
 
 It uses the YouTube-explode library and FFMPEG.
 
-![app screenshot](app.png)
+![app screenshot](YoutubeMusicDownloader/app.png)
 
 For personal, educational use only! All rights to the content belong to the copyright holders.
 
