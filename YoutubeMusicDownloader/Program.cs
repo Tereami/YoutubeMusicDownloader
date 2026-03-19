@@ -1,3 +1,6 @@
+using System.Reflection;
+
+[assembly: AssemblyVersion("1.0.*")]
 namespace YoutubeMusicDownloader
 {
     internal static class Program

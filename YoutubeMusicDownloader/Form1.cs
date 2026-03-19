@@ -1,8 +1,9 @@
+using System.Diagnostics;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using YoutubeExplode;
 using YoutubeExplode.Channels;
 using YoutubeExplode.Converter;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace YoutubeMusicDownloader
 {
@@ -12,6 +13,7 @@ namespace YoutubeMusicDownloader
         public Form1()
         {
             InitializeComponent();
+            this.Text += $" v.{Assembly.GetExecutingAssembly().GetName().Version}";
             buttonBrowseFolder.Click += ButtonBrowseFolder_Click;
             buttonStart.Click += ButtonStart_Click;
         }
