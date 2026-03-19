@@ -79,8 +79,6 @@ namespace YoutubeMusicDownloader
                                   .SetPreset(ConversionPreset.Medium),
                             progress: new Progress<double>(p =>
                             {
-                                //BeginInvoke(() => UpdateLastLogLine(
-                                //    $"[DOWNLOADING] {video.Title}... {p:P0}"));
                                 BeginInvoke(() => UpdateProgress(video.Title, p));
                             }),
                             cancellationToken: token
@@ -262,6 +260,40 @@ namespace YoutubeMusicDownloader
 
             labelCurrentFile.Text = string.Empty;
             progressBar1.Value = 0;
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            string outputDir = textBoxFolderToSavePath.Text.Trim();
+            Directory.CreateDirectory(outputDir);
+
+            Process.Start(new ProcessStartInfo(outputDir)
+            {
+                UseShellExecute = true
+            });
+        }
+
+        private void linkLabelAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenBrowser("https://github.com/Tereami/YoutubeMusicDownloader");
+        }
+        private void linkLabelYEX_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenBrowser("https://github.com/Tyrrrz/YoutubeExplode");
+        }
+
+        private void linkLabelFM_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenBrowser("https://www.ffmpeg.org/");
+        }
+
+        private void OpenBrowser(string url)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
         }
     }
 }

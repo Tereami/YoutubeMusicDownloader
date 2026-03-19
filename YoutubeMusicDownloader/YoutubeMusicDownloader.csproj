@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="icon.ico" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="icon.ico" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="YoutubeExplode" Version="6.5.7" />
-    <PackageReference Include="YoutubeExplode.Converter" Version="6.5.7" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="YoutubeExplode" Version="6.5.7" />
+		<PackageReference Include="YoutubeExplode.Converter" Version="6.5.7" />
+	</ItemGroup>
 
 </Project>

@@ -47,6 +47,9 @@
             progressBar1 = new ProgressBar();
             buttonCancel = new Button();
             buttonOpen = new Button();
+            linkLabelAbout = new LinkLabel();
+            linkLabelYEX = new LinkLabel();
+            linkLabelFM = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)numericMinLengthSeconds).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericMaxLengthSeconds).BeginInit();
             SuspendLayout();
@@ -66,10 +69,10 @@
             textBoxChannelLink.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxChannelLink.Location = new Point(12, 28);
             textBoxChannelLink.Name = "textBoxChannelLink";
-            textBoxChannelLink.PlaceholderText = "https://www.youtube.com/channel/UCjoIPWYycsUsV2XueaovRlQ";
+            textBoxChannelLink.PlaceholderText = "https://www.youtube.com/channel/CHANNEL-NAME";
             textBoxChannelLink.Size = new Size(439, 23);
             textBoxChannelLink.TabIndex = 1;
-            textBoxChannelLink.Text = "https://www.youtube.com/channel/UCjoIPWYycsUsV2XueaovRlQ";
+            textBoxChannelLink.Text = "https://www.youtube.com/channel/CHANNEL-NAME";
             // 
             // label2
             // 
@@ -102,7 +105,7 @@
             // 
             // numericMinLengthSeconds
             // 
-            numericMinLengthSeconds.Location = new Point(138, 66);
+            numericMinLengthSeconds.Location = new Point(208, 66);
             numericMinLengthSeconds.Name = "numericMinLengthSeconds";
             numericMinLengthSeconds.Size = new Size(65, 23);
             numericMinLengthSeconds.TabIndex = 6;
@@ -113,13 +116,13 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 68);
             label3.Name = "label3";
-            label3.Size = new Size(120, 15);
+            label3.Size = new Size(189, 15);
             label3.TabIndex = 7;
-            label3.Text = "Save tracks only from";
+            label3.Text = "Filter tracks by duration only from ";
             // 
             // numericMaxLengthSeconds
             // 
-            numericMaxLengthSeconds.Location = new Point(233, 66);
+            numericMaxLengthSeconds.Location = new Point(303, 66);
             numericMaxLengthSeconds.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericMaxLengthSeconds.Name = "numericMaxLengthSeconds";
             numericMaxLengthSeconds.Size = new Size(65, 23);
@@ -129,7 +132,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(209, 68);
+            label4.Location = new Point(279, 68);
             label4.Name = "label4";
             label4.Size = new Size(18, 15);
             label4.TabIndex = 7;
@@ -138,7 +141,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(304, 68);
+            label5.Location = new Point(374, 68);
             label5.Name = "label5";
             label5.Size = new Size(50, 15);
             label5.TabIndex = 7;
@@ -169,7 +172,7 @@
             richTextBoxLog.Location = new Point(12, 293);
             richTextBoxLog.Name = "richTextBoxLog";
             richTextBoxLog.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
-            richTextBoxLog.Size = new Size(439, 235);
+            richTextBoxLog.Size = new Size(439, 220);
             richTextBoxLog.TabIndex = 10;
             richTextBoxLog.Text = "";
             // 
@@ -220,12 +223,52 @@
             buttonOpen.TabIndex = 4;
             buttonOpen.Text = "Open";
             buttonOpen.UseVisualStyleBackColor = true;
+            buttonOpen.Click += buttonOpen_Click;
+            // 
+            // linkLabelAbout
+            // 
+            linkLabelAbout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            linkLabelAbout.AutoSize = true;
+            linkLabelAbout.Location = new Point(12, 516);
+            linkLabelAbout.Name = "linkLabelAbout";
+            linkLabelAbout.Size = new Size(40, 15);
+            linkLabelAbout.TabIndex = 14;
+            linkLabelAbout.TabStop = true;
+            linkLabelAbout.Text = "About";
+            linkLabelAbout.LinkClicked += linkLabelAbout_LinkClicked;
+            // 
+            // linkLabelYEX
+            // 
+            linkLabelYEX.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            linkLabelYEX.AutoSize = true;
+            linkLabelYEX.Location = new Point(58, 516);
+            linkLabelYEX.Name = "linkLabelYEX";
+            linkLabelYEX.Size = new Size(93, 15);
+            linkLabelYEX.TabIndex = 14;
+            linkLabelYEX.TabStop = true;
+            linkLabelYEX.Text = "YoutubeExplode";
+            linkLabelYEX.LinkClicked += linkLabelYEX_LinkClicked;
+            // 
+            // linkLabelFM
+            // 
+            linkLabelFM.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            linkLabelFM.AutoSize = true;
+            linkLabelFM.Location = new Point(162, 516);
+            linkLabelFM.Name = "linkLabelFM";
+            linkLabelFM.Size = new Size(51, 15);
+            linkLabelFM.TabIndex = 14;
+            linkLabelFM.TabStop = true;
+            linkLabelFM.Text = "FFMPEG";
+            linkLabelFM.LinkClicked += linkLabelFM_LinkClicked;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(463, 540);
+            Controls.Add(linkLabelFM);
+            Controls.Add(linkLabelYEX);
+            Controls.Add(linkLabelAbout);
             Controls.Add(buttonCancel);
             Controls.Add(progressBar1);
             Controls.Add(labelCurrentFile);
@@ -245,6 +288,7 @@
             Controls.Add(textBoxChannelLink);
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(479, 579);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Youtube Music Downloader";
@@ -274,5 +318,8 @@
         private ProgressBar progressBar1;
         private Button buttonCancel;
         private Button buttonOpen;
+        private LinkLabel linkLabelAbout;
+        private LinkLabel linkLabelYEX;
+        private LinkLabel linkLabelFM;
     }
 }
